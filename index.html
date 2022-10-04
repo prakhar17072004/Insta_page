@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+        
+        <link rel="stylesheet" href="style.css">
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+        <script src="./firebase.js"></script>
+        <script src="./modal.js"></script>
     </head>
     <body>
         <header>
@@ -15,10 +18,23 @@
             </div>
             <nav class="nav">
                 <ul>
+            <!--modal-->
+                  <img src= "images/pic.png" class="img" id="myBtn"> 
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h1 class="heding">New Post</h1>
+                            <input id="image" type="./"name="name" class="URL" placeholder=" Image">
+                            <button class="button" cl type="button" onclick = addItem()>ADD</button>
+                        </div>
+                    </div>
                     
-                    <a href="."> <img src= "images/pic.png" class="img"></a>
                     
-                    <a href=""><img src="images/re.webp" class="img"></a>
+                    
+                    
+                    
+                    
+                  <img src="images/re.webp" class="img">
                     
                     
                 </ul>
@@ -26,19 +42,38 @@
          
   
         </header>
-
-        <div class="card">
-            <div class="post-img">
-                <img src="images/virat.jpg" >
-            </div>
-            <div class="bottom">
-                <img src=" images/heart.png" class="like">
-               <p class="click">Click On Favorite Post</p>
-            </div>
-            
-        </div> 
-       
-              
+      <div class="contanior">
+        
+      </div>
+         
+ <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    console.log(modal);
+    
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    console.log(btn);
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+ </script>       
     </body>
 </html>
 
