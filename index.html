@@ -3,11 +3,12 @@
     <head>
         
         <link rel="stylesheet" href="style.css">
+        <link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
         <script src="./firebase.js"></script>
-        <script src="./modal.js"></script>
+        <script src="https://kit.fontawesome.com/8af0024e10.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <header>
@@ -35,7 +36,7 @@
                     
                     
                   <img src="images/re.webp" class="img">
-                    
+                  
                     
                 </ul>
             </nav>
@@ -47,34 +48,11 @@
       </div>
          
  <script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
-    console.log(modal);
     
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-    console.log(btn);
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-    
-    // When the user clicks the button, open the modal 
-    btn.onclick = function() {
-      modal.style.display = "block";
-    }
-    
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-    
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
  </script>       
     </body>
+    <script src="./index.js"></script>
+    <script src="./modal.js"></script>
 </html>
 
 

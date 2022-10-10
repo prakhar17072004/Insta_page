@@ -35,7 +35,7 @@ function displayItems(items){
                 <img src="${item.image}" >
             </div>
             <div class="bottom">
-                <img src=" images/heart.png" class="like">
+               <i onclick= "add()"  id="btn" class="far fa-heart"></i>
                <p class="click">Click On Favorite Post</p>
             </div>
          </div>
@@ -46,11 +46,27 @@ function displayItems(items){
       
   });
 document.querySelector(".contanior").innerHTML=itemsHMTL;
-  
+
+
+
+
+ 
 }
 
- 
+
+function add(btn){
+  var btn = document.querySelector("#btn");
+
+  console.log(btn.classList.contains("far"));
+  if(btn.classList.contains("far")){
+    btn.classList.remove("far");
+    btn.classList.add("fas");
+  }else{
+    btn.classList.remove("fas");
+    btn.classList.add("far");
+
+  }
+}
 
 
- 
 getItems();
