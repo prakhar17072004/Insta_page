@@ -35,7 +35,7 @@ function displayItems(items){
                 <img src="${item.image}" >
             </div>
             <div class="bottom">
-               <i onclick= "add()"  id="btn" class="far fa-heart"></i>
+               <i onclick= add("${item.id}") id="like" class="far fa-heart"></i>
                <p class="click">Click On Favorite Post</p>
             </div>
          </div>
@@ -47,26 +47,25 @@ function displayItems(items){
   });
 document.querySelector(".contanior").innerHTML=itemsHMTL;
 
-
-
-
- 
 }
 
+//id pass kiye h par first image par work kar raha h
+function add(id){
+  console.log(id);
+  var like = document.querySelector("#like");
 
-function add(btn){
-  var btn = document.querySelector("#btn");
-
-  console.log(btn.classList.contains("far"));
-  if(btn.classList.contains("far")){
-    btn.classList.remove("far");
-    btn.classList.add("fas");
+  console.log(like.classList.contains("far"));
+  if(like.classList.contains("far")){
+    like.classList.remove("far");
+    like.classList.add("fas");
   }else{
-    btn.classList.remove("fas");
-    btn.classList.add("far");
-
+    like.classList.remove("fas");
+    like.classList.add("far");
   }
+ 
+    
+  
+  
 }
-
 
 getItems();
