@@ -49,7 +49,7 @@ document.querySelector(".contanior").innerHTML=itemsHMTL;
 
 }
 
-//id pass kiye h par first image par work kar raha h
+
 function add(id){
 
   if(document.getElementById(id).classList.contains("far")){
