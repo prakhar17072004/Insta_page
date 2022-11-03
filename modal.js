@@ -1,7 +1,7 @@
 function addItem( ){
   let image =document.getElementById("image").value;
   
-  db.collection("insta").add({
+  db.collection("instaa").add({
     image: image,
   }) 
   document.getElementById("image").value  =''
@@ -9,7 +9,7 @@ function addItem( ){
 
 //display image//
 function getItems(){
-  db.collection("insta").onSnapshot((snapshot)=>{
+  db.collection("instaa").onSnapshot((snapshot)=>{
       let items=[];
 
       console.log(snapshot.docs[0].data())
