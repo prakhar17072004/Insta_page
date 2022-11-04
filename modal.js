@@ -3,6 +3,8 @@ function addItem( ){
   
   db.collection("instaa").add({
     image: image,
+    status:"unlike",
+    
   }) 
   document.getElementById("image").value  =''
 }
@@ -35,7 +37,7 @@ function displayItems(items){
                 <img src="${item.image}" >
             </div>
             <div class="bottom">
-               <i onclick= add("${item.id}") id="${item.id}" class="far fa-heart"></i>
+               <i onclick= add("${item.id}")  id="${item.id}" data-id="${item.id}" class="far fa-heart ${item.status=="like"?"fas":""}"></i>
                <p class="click">Click On Favorite Post</p>
             </div>
          </div>
@@ -46,10 +48,17 @@ function displayItems(items){
       
   });
 document.querySelector(".contanior").innerHTML=itemsHMTL;
-
+createEventListeners();
 }
-
-
+function createEventListeners(){
+  let likeButton = document.querySelectorAll(".bottom .fa-heart");
+  console.log(likeButton);
+  likeButton.forEach((like)=>{
+  like.addEventListener("click",function(){
+      markCompleted(like.dataset.id);
+   })
+  })
+}
 function add(id){
 
   if(document.getElementById(id).classList.contains("far")){
@@ -61,5 +70,35 @@ function add(id){
     document.getElementById(id).classList.add("far");
   }
  }
+ 
+ function markCompleted(id){
+  //from a database
+ let item = db.collection("instaa").doc(id);
+ item.get().then(function(doc){
+    
+  if(doc.exists){
+    console.log("heare is data:",doc.data())
+      let status=doc.data().status;
+      if(status=="unlike"){
+          item.update({
+              status:"like"
+          })
+      }else if(status=="like"){
+          item.update({
+              status:"unlike"
+          })
+      }
+  }
+ })
+
+ 
+}
+ 
+  
+
+ 
+
+
+ 
 
 getItems();
